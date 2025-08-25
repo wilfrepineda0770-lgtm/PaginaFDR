@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Promoción 2025 - Instituto Franklin Delano Roosevelt</title>
+  <link rel="icon" href="locopng.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    :root {
+      --primary: #4A6FA5;
+      --secondary: #7DB9B6;
+      --accent: #5dd1ff;
+      --light: #F5F5F5;
+      --dark: #2A4B6A;
+      --text: #333333;
+      --background: #F0F6FF;
+    }
+    
+    body {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 0;
+      min-height: 100vh;
+    }
+    
+    /* Navegación superior - Mismo estilo que las otras páginas */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.98);
+      padding: 15px 0;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+      border-bottom: 3px solid var(--accent);
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .logo-nav-container {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    
+    .nav-logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border: 3px solid var(--accent);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+    }
+    
+    .nav-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 5px;
+    }
+    
+    .nav-item {
+      margin: 0;
+    }
+    
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      background: var(--light);
+      color: var(--primary);
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      border: 2px solid transparent;
+    }
+    
+    .nav-link:hover, .nav-link.active {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      border-color: var(--accent);
+    }
+    
+    .nav-link i {
+      font-size: 1.1rem;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      background-color: rgba(255, 255, 255, 0.97);
+      border-radius: 15px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      position: relative;
+    }
+    
+    header {
+      background: linear-gradient(90deg, var(--primary) 0%, var(--dark) 100%);
+      color: white;
+      padding: 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .header-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1000') no-repeat center center;
+      background-size: cover;
+      opacity: 0.1;
+    }
+    
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 2;
+      color: white;
+    }
+    
+    .subtitle {
+      font-size: 1.3rem;
+      opacity: 0.9;
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      font-style: italic;
+      color: var(--light);
+    }
+    
+    .content-section {
+      padding: 50px 40px;
+      background: white;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--primary);
+      font-size: 2.2rem;
+      position: relative;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    
+    /* Estilos para la sección de alumnos */
+    .alumnos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+    
+    .alumno {
+      background: linear-gradient(to bottom, #f3e8ff, #fafafa);
+      border: 2px solid var(--accent);
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .alumno:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    
+    .alumno img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      border: 3px solid var(--primary);
+    }
+    
+    .alumno h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    
+    .alumno .frase {
+      font-size: 0.85rem;
+      font-style: italic;
+      color: #555;
+      line-height: 1.4;
+      padding: 0 5px;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: var(--dark);
+      color: white;
+      font-size: 1rem;
+    }
+    
+    .quote {
+      font-style: italic;
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: var(--accent);
+      max-width: 800px;
+      margin: 20px auto 0;
+    }
+    
+    @media (max-width: 992px) {
+      .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .logo-nav-container {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .alumnos {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      /* Navegación responsiva */
+      .top-nav {
+        position: relative;
+      }
+      
+      .nav-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .nav-link {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+      }
+      
+      .alumnos {
+        grid-template-columns: 1fr;
+      }
+      
+      .alumno img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menú de navegación superior actualizado -->
+  <nav class="top-nav">
+    <div class="nav-container">
+      <div class="logo-nav-container">
+        <div class="nav-logo">
+          <img src="fdrlogo.jpg" alt="Logo del Instituto Franklin Delano Roosevelt">
+        </div>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">
+              <i class="fas fa-home"></i> Inicio
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="carreras.html" class="nav-link">
+              <i class="fas fa-graduation-cap"></i> Carreras
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="eventos.html" class="nav-link">
+              <i class="fas fa-calendar-alt"></i> Eventos
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="noticias.html" class="nav-link">
+              <i class="fas fa-newspaper"></i> Noticias
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="alumnos.html" class="nav-link">
+              <i class="fas fa-user-friends"></i> Alumnos
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="contacto.html" class="nav-link">
+              <i class="fas fa-envelope"></i> Contacto
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header>
+      <div class="header-overlay"></div>
+      <h1>Promoción 2025</h1>
+      <p class="subtitle">Conoce a los futuros graduados del Instituto Franklin Delano Roosevelt</p>
+    </header>
+    
+    <div class="content-section">
+      <h2 class="section-title">Nuestros Estudiantes</h2>
+      
+      <div class="alumnos">
+        <div class="alumno">
+          <img src="anyeli.jpg" alt="Andrea">
+          <h3>1. ANYELI DARIELA GARCIA RIVAS</h3>
+          <p class="frase">"El esfuerzo de ayer es el triunfo de hoy"</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="judith.jpg" alt="Ashly Judith Lopez Castro">
+          <h3>2. ASHLY JUDITH LOPEZ CASTRO</h3>
+          <p class="frase">"Claro, aquí tienes algunas frases de graduación que puedes usar para discursos, tarjetas o publicaciones"</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="guardado.jpg" alt="Ashley Rachell Guardado Garcia">
+          <h3>3. ASHLEY RACHELL GUARDADO GARCIA</h3>
+          <p class="frase">"Madre no es la que engendra, es la que vale"</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="yareli.jpg" alt="Ashly Jarely Rivera Mejia">
+          <h3>4. ASHLY JARELY RIVERA MEJIA</h3>
+          <p class="frase">"Lo de llegar tarde fue lo único que dominé bien"</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="cesia.jpg" alt="Cecia Jasmin Castro Bonilla">
+          <h3>5. CECIA JASMIN CASTRO BONILLA</h3>
+          <p class="frase">"Dios tiene planes de bien para mí"</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="daylin.jpg" alt="Dalyn Marissa Lopez Escobar">
+          <h3>6. DALYN MARISSA LOPEZ ESCOBAR</h3>
+          <p class="frase">"Mi verdadera materia extra: Preguntar a ChatGPT"</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="engel.jpg" alt="Engel Yoreli Hernandez Lopez">
+          <h3>7. ENGEL YORELI HERNANDEZ LOPEZ</h3>
+          <p class="frase">"Saqué 0, pero brillé de todos modos."</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="erika.jpg" alt="Erica Viviana Melos Reyes">
+          <h3>8. ERICA VIVIANA MELOS REYES</h3>
+          <p class="frase">"Clic derecho"</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="genesis.jpg" alt="Genesis Heranda Cerrato Maradiaga">
+          <h3>9. GENESIS FERNANDA CERRATO MARADIAGA</h3>
+          <p class="frase">"El que vive confiado muere traicionado."</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="juany.jpg" alt="Juany Melisa Mejia Enamorado">
+          <h3>10. JUANY MELISA MEJIA ENAMORADO</h3>
+          <p class="frase">"Las oportunidades son como el amanecer: si esperas demasiado, las pierdes."</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="karen.jpg" alt="Karen Natalia Reyes Alvarado">
+          <h3>11. KAREN NATALIA REYES ALVARADO</h3>
+          <p class="frase">"Cree en ti y todo sera posible"</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="kimberly.jpg" alt="Kimberly Tatiana Tinoco Mateo">
+          <h3>12. KIMBERLY TATIANA TINOCO MATEO</h3>
+          <p class="frase">"Hoy termina una etapa, pero comienza el verdadero camino hacia mis sueños."</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="perfil.jpg" alt="Laurenn Amarilis Oliva Jimenez">
+          <h3>13. LAURENN AMARILIS OLIVA JIMENEZ</h3>
+          <p class="frase">Vacio</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="perfil.jpg" alt="Marissa Dayanara Velasquez Alvarado">
+          <h3>14. MARISSA DAYANARA VELASQUEZ ALVARADO</h3>
+          <p class="frase">Vacio</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="nataly.jpg" alt="Nataly Rashell Varela Ramirez">
+          <h3>15. NATALY RASHELL VARELA RAMIREZ</h3>
+          <p class="frase">"8 palabras: E-S-T-É-T-I-C-A"</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="paulina.jpg" alt="Paulina Michelle Almendares Amador">
+          <h3>16. PAULINA MICHELLE ALMENDARES AMADOR</h3>
+          <p class="frase">"Si el problema tiene solución, ¿para que te preocupas?, y si no tiene solución , pues ya para que te preocupas"</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="tatiana.jpg" alt="Tatiana Verenice Toledo Rios">
+          <h3>17. TATIANA VERENICE TOLEDO RIOS</h3>
+          <p class="frase">"de puro procrastinar"</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="valery.jpg" alt="Valery Sinai Montoya Hernandez">
+          <h3>18. VALERY SINAI MONTOYA HERNANDEZ</h3>
+          <p class="frase">"Juntos dejamos huellas que durarán para siempre."</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="sinai.jpg" alt="Yesli Samai Padilla Rodriguez">
+          <h3>19. YESLI SAMAI PADILLA RODRIGUEZ</h3>
+          <p class="frase">"Sé el cambio que quieres ver en el mundo."</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="angel.jpg" alt="Angel Caleb Posas Murillo">
+          <h3>20. ANGEL CALEB POSAS MURILLO</h3>
+          <p class="frase">"Erase una vez un niño muy guapo como yo que cantaba y ahora es Luis Miguel"</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="axel.jpg" alt="Axel Maudiel Martinez Martinez">
+          <h3>21. AXEL MAUDIEL MARTINEZ MARTINEZ</h3>
+          <p class="frase">"En un lugar de la Mancha, de cuyo nombre no quiero acordarme…"</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="eren.jpg" alt="Eren Odaldo Gutierrez Hernandez">
+          <h3>22. EREN ODALDO GUTIERREZ HERNANDEZ</h3>
+          <p class="frase">"Número uno, pero de su casa."</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="jair.jpg" alt="Jair Alexander Alvarado Flores">
+          <h3>23. JAIR ALEXANDER ALVARADO FLORES</h3>
+          <p class="frase">"Que hijo de la mañana"</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="isaac.jpg" alt="Jerson Isaac Merino Ordoñez">
+          <h3>24. JERSON ISAAC MERINO ORDOÑEZ</h3>
+          <p class="frase">"la mitad del año no hice nada, la otra mitad fue salvarlo"</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="wilfredo.jpg" alt="Jose Wilfredo Pineda Fernandez">
+          <h3>25. JOSE WILFREDO PINEDA FERNANDEZ</h3>
+          <p class="frase">"La inteligencia casi me alcanza, pero fui más rápido"</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="josias.jpg" alt="Josias Daniel Chavarria Rodriguez">
+          <h3>26. JOSIAS DANIEL CHAVARRIA RODRIGUEZ</h3>
+          <p class="frase">"Owowowowowowow"</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="josue.jpg" alt="Josue Emanuel Interiano Mann">
+          <h3>27. JOSUE EMANUEL INTERIANO MANN</h3>
+          <p class="frase">"No diré nada más que solo: "Tareas en ChatGPT, resacas y recuerdos."</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="juan.jpg" alt="Juan Carlos Banegas Guardado">
+          <h3>28. JUAN CARLOS BANEGAS GUARDADO</h3>
+          <p class="frase">"Si puedes imaginarlo, puedes programarlo"</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="kenny.jpg" alt="Kenny Isai Jimenez Rodriguez">
+          <h3>29. KENNY ISAI JIMENEZ RODRIGUEZ</h3>
+          <p class="frase">"Entre mas alta mas salta y entre mas pequeña mas grita"</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="luis.jpg" alt="Luis Adolfo Ulloa Lopez">
+          <h3>30. LUIS ADOLFO ULLOA LOPEZ</h3>
+          <p class="frase">"Cogito, ergo sum"</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="pedriño.jpg" alt="Pedro Isai Martinez Lopez">
+          <h3>31. PEDRO ISAI MARTINEZ LOPEZ</h3>
+          <p class="frase">"Al final no soy especial, soy tonto como todo el mundo.."</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="ramon.jpg" alt="Ramon Arturo Benitez Gonzales">
+          <h3>32. RAMON ARTURO BENITEZ GONZALES</h3>
+          <p class="frase">"Todos somos hijos del autoboicot"</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="victor.jpg" alt="Victor David Castro Nuñez">
+          <h3>33. VICTOR DAVID CASTRO NUÑEZ</h3>
+          <p class="frase">"Naci por mi madre morire por mis estudios"</p>
+        </div>
+        
+        <div class="alumno">
+          <img src="rubio.jpg" alt="Victor Noe Rubio Rodas">
+          <h3>34. VICTOR NOE RUBIO RODAS</h3>
+          <p class="frase">"Si el codigo no arranca... no hay nada que hacer"</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Marcar como activo el enlace actual
+      const currentPage = window.location.pathname.split('/').pop();
+      document.querySelectorAll('.nav-link').forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+          link.classList.add('active');
+        }
+      });
+      
+      // Efecto de aparición para las tarjetas de alumnos
+      const alumnos = document.querySelectorAll('.alumno');
+      alumnos.forEach((alumno, index) => {
+        alumno.style.opacity = '0';
+        alumno.style.transform = 'translateY(20px)';
+        alumno.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        
+        setTimeout(() => {
+          alumno.style.opacity = '1';
+          alumno.style.transform = 'translateY(0)';
+        }, 100 + (index * 100));
+      });
+    });
+  </script>
+
+</body>
+</html>

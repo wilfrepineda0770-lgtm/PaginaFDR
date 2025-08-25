@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Origen del Instituto Franklin Delano Roosevelt</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #4A6FA5;
+            --secondary: #7DB9B6;
+            --accent: #5dd1ff;
+            --light: #F5F5F5;
+            --dark: #2A4B6A;
+            --text: #333333;
+            --background: #F0F6FF;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 0;
+            min-height: 100vh;
+        }
+        
+        /* Navegación superior */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            border-bottom: 3px solid var(--accent);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo-nav-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .nav-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+        }
+        
+        .nav-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+        
+        .nav-item {
+            margin: 0;
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: var(--light);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            border: 2px solid transparent;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border-color: var(--accent);
+        }
+        
+        .nav-link i {
+            font-size: 1.1rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.97);
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        header {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--dark) 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1000') no-repeat center center;
+            background-size: cover;
+            opacity: 0.1;
+        }
+        
+        .logo-container {
+            position: relative;
+            z-index: 2;
+            margin: 0 auto 20px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 5px solid var(--accent);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .logo-placeholder {
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            font-style: italic;
+            color: var(--light);
+        }
+        
+        .divider {
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), #5dd1ff);
+            width: 200px;
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+        
+        .content-section {
+            padding: 50px 40px;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary);
+            font-size: 2.2rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .origin-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .origin-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, rgba(13, 217, 231, 0), rgba(13, 217, 231, 0));
+            padding: 15px 20px;
+            border-left: 4px solid var(--accent);
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .founders-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .founder-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            border-bottom: 4px solid var(--accent);
+        }
+        
+        .founder-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .founder-card h4 {
+            color: var(--primary);
+            margin: 15px 0 5px;
+        }
+        
+        .founder-card p {
+            color: var(--dark);
+            font-style: italic;
+        }
+        
+        .silhouette {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            background-color: var(--primary);
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            clip-path: circle(50% at 50% 50%);
+        }
+        
+        .silhouette::before {
+            content: '';
+            position: absolute;
+            top: 15%;
+            left: 35%;
+            width: 30%;
+            height: 30%;
+            background-color: var(--light);
+            border-radius: 50%;
+        }
+        
+        .silhouette::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 25%;
+            width: 50%;
+            height: 50%;
+            background-color: var(--light);
+            border-radius: 35% 35% 0 0;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: var(--dark);
+            color: white;
+            font-size: 1rem;
+        }
+        
+        .quote {
+            font-style: italic;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: var(--accent);
+            max-width: 800px;
+            margin: 20px auto 0;
+        }
+        
+        /* Estilos para la galería */
+        .gallery-section {
+            padding: 50px 40px;
+            background: var(--light);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            height: 300px; /* Altura fija para uniformidad */
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.05);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        .gallery-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .gallery-description {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow: auto;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            display: block;
+            max-width: 90%;
+            max-height: 80%;
+            margin: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+        }
+        
+        .modal-caption {
+            text-align: center;
+            color: white;
+            padding: 15px;
+            font-size: 1.2rem;
+            max-width: 80%;
+            margin: 0 auto;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: var(--accent);
+        }
+        
+        @media (max-width: 992px) {
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .logo-nav-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .logo-container {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .logo-placeholder {
+                width: 130px;
+                height: 130px;
+                font-size: 18px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            /* Navegación responsiva */
+            .top-nav {
+                position: relative;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-link {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+                margin-bottom: 5px;
+            }
+            
+            .founder-card {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-item {
+                height: 250px; /* Altura reducida en móviles */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Menú de navegación superior con más botones -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div class="logo-nav-container">
+                <div class="nav-logo">
+                    <img src="fdrlogo.jpg" alt="Logo del Instituto Franklin Delano Roosevelt">
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#gallery" class="nav-link" id="inicio-link">
+                            <i class="fas fa-home"></i> Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="carreras.html" class="nav-link">
+                            <i class="fas fa-graduation-cap"></i> Carreras
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="eventos.html" class="nav-link">
+                            <i class="fas fa-calendar-alt"></i> Eventos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="noticias.html" class="nav-link">
+                            <i class="fas fa-newspaper"></i> Noticias
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="alumnos.html" class="nav-link">
+                            <i class="fas fa-user-friends"></i> Alumnos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contacto.html" class="nav-link">
+                            <i class="fas fa-envelope"></i> Contacto
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <div class="header-overlay"></div>
+            <div class="logo-container">
+                <div class="logo-placeholder">
+                    <img src="fdrlogo.jpg" alt="Logo del Instituto Franklin Delano Roosevelt" style="width: 180px; height: 180px; border-radius: 50%;">
+                </div>
+            </div>
+            <h1>Instituto Franklin Delano Roosevelt</h1>
+            <p class="subtitle">Origen e Historia Fundacional en Puerto Cortés, Honduras</p>
+        </header>
+        
+        <div class="content-section">
+            <h2 class="section-title">El Origen de una Institución</h2>
+            
+            <div class="origin-content">
+                <p>La historia del Instituto Franklin Delano Roosevelt (FDR) en Puerto Cortés, Honduras, es un relato de esfuerzo comunitario, visión educativa y compromiso social que ha perdurado por más de ocho décadas.</p>
+                
+                <div class="highlight">
+                    <p>En 1944, un grupo de porteños visionarios, respaldados por la <strong>Logia Masónica</strong> and el <strong>Club Rotario</strong>, constituyó la <strong>Sociedad de Padres de Familia</strong> con el objetivo de crear un instituto de educación media que respondiera a las necesidades de la comunidad.</p>
+                </div>
+                
+                <p>El impulse fundacional surgió de la necesidad de contar con una institución educativa de nivel medio en la ciudad portuaria, que hasta entonces carecía de alternativas para la formación de sus jóvenes. La iniciativa fue encabezada por destacados miembros de la comunidad como Alberto Carias Quiroz (presidente), Jacobo Núñez Hércules (vicepresidente), José Urbizo (secretario) and Rafael Prince (tesorero).</p>
+                
+                <p>El proceso de legalización fue gestionado por el abogado Roberto Ramírez, quien presentó los documentos necesarios que acreditaban la idoneidad del primer director, el profesor <strong>Rubén Alvarado Peña</strong>, quien contaba con 16 años de experiencia docente. Finalmente, mediante <strong>Acuerdo No. 1030 del 26 de junio de 1945</strong>, el gobierno hondureño autorizó oficialmente el funcionamiento del instituto.</p>
+                
+                <h3 style="text-align: center; color: var(--primary); margin: 40px 0 20px;">Miembros Fundadores Clave</h3>
+                
+                <div class="founders-section">
+                    <div class="founder-card">
+                        <div class="silhouette"></div>
+                        <h4>Alberto Carias Quiroz</h4>
+                        <p>Presidente Fundador</p>
+                        <p>Logia Masónica</p>
+                    </div>
+                    
+                    <div class="founder-card">
+                        <div class="silhouette"></div>
+                        <h4>Jacobo Núñez Hércules</h4>
+                        <p>Vicepresidente</p>
+                        <p>Médico</p>
+                    </div>
+                    
+                    <div class="founder-card">
+                        <div class="silhouette"></div>
+                        <h4>Rubén Alvarado Peña</h4>
+                        <p>Primer Director</p>
+                        <p>Experto en Educación</p>
+                    </div>
+                    
+                    <div class="founder-card">
+                        <div class="silhouette"></div>
+                        <h4>José Urbizo</h4>
+                        <p>Secretario</p>
+                        <p>Coronel</p>
+                    </div>
+                </div>
+                
+                <div class="divider"></div>
+                
+                <h3 style="text-align: center; color: var(--primary); margin: 40px 0 20px;">El Origen del Nombre</h3>
+                
+                <p>La elección del nombre "Franklin Delano Roosevelt" para el instituto tiene dos posibles orígenes que reflejan el contexto histórico de la época:</p>
+                
+                <p><strong>1. Influencia de un benefactor:</strong> Según algunas versiones, un benefactor norteamericano entre los fundadores motivó el nombre para honrar a su compatriota, quien había fallecido recientemente (abril de 1945).</p>
+                
+                <p><strong>2. Admiración histórica:</strong> Otra teoría señala que los fundadores eligieron el nombre por admiración hacia Franklin D. Roosevelt, presidente de Estados Unidos entre 1933 and 1945, reconocido por su lucha global por la democracia durante la Segunda Guerra Mundial and por su política del "New Deal" que transformó la economía estadounidense.</p>
+                
+                <div class="highlight">
+                    <p>El instituto inició sus actividades con tres modalidades educativas: <strong>Bachillerato en Ciencias y Letras</strong>, <strong>Maestro de Enseñanza Primaria Urbana</strong> and <strong>Perito Mercantil and Contador Público</strong>, sentando las bases de lo que sería una institución fundamental para el desarrollo educativo de Puerto Cortés.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sección de Galería en la parte inferior -->
+        <section id="gallery" class="gallery-section">
+            <h2 class="section-title">Galería del Instituto</h2>
+            <p style="text-align: center; margin-bottom: 30px;">Explora nuestra colección de imágenes que capturan la esencia y la historia de nuestra institución</p>
+            
+            <div class="gallery-grid">
+                <!-- Imágenes de la galería -->
+                <div class="gallery-item">
+                    <img src="edificioa.webp" alt="Edificio A" class="gallery-image">
+                    <div class="gallery-caption">
+                        <div class="gallery-title">Edificio A</div>
+                        <div class="gallery-description">Vista frontal del edificio A en el cual se ubica el área de informática</div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="laboratorio.jpg" alt="Laboratorio informático" class="gallery-image">
+                    <div class="gallery-caption">
+                        <div class="gallery-title">Laboratorio informático</div>
+                        <div class="gallery-description">Nuestras aulas equipadas con tecnología</div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="fotocopiadora.jpg" alt="Fotocopiadora" class="gallery-image">
+                    <div class="gallery-caption">
+                        <div class="gallery-title">Fotocopiadora</div>
+                        <div class="gallery-description">Fotocopiadora del colegio donde se compran útiles y otros objetos variados</div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="enfermeria.jpg" alt="Enfermería" class="gallery-image">
+                    <div class="gallery-caption">
+                        <div class="gallery-title">Enfermería</div>
+                        <div class="gallery-description">Local para atender a los alumnos enfermos o heridos</div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="campo.jpg" alt="Campo" class="gallery-image">
+                    <div class="gallery-caption">
+                        <div class="gallery-title">Campo</div>
+                        <div class="gallery-description">Campo donde se juegan y practican los partidos del equipo de football del FDR</div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="teatrogriego.jpg" alt="Teatro Griego" class="gallery-image">
+                    <div class="gallery-caption">
+                        <div class="gallery-title">Teatro Griego</div>
+                        <div class="gallery-description">Espacio para eventos o charlas</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal para ver imágenes en grande -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="modalCaption" class="modal-caption"></div>
+    </div>
+
+    <script>
+        // Efecto de aparición para el contenido
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.origin-content p, .founder-card, .highlight');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 200 + (index * 100));
+            });
+            
+            // Marcar como activo el enlace actual
+            const currentPage = window.location.pathname.split('/').pop();
+            document.querySelectorAll('.nav-link').forEach(link => {
+                const linkPage = link.getAttribute('href');
+                if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Configuración de la galería
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImage");
+            const captionText = document.getElementById("modalCaption");
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            galleryItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    modal.style.display = "flex";
+                    modalImg.src = this.querySelector('.gallery-image').src;
+                    captionText.innerHTML = this.querySelector('.gallery-title').innerHTML + 
+                                           " - " + 
+                                           this.querySelector('.gallery-description').innerHTML;
+                });
+            });
+            
+            // Cerrar modal
+            document.querySelector('.close-modal').addEventListener('click', function() {
+                modal.style.display = "none";
+            });
+            
+            // Cerrar modal al hacer clic fuera de la imagen
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+            
+            // Navegación automática al hacer clic en "Inicio"
+            document.getElementById('inicio-link').addEventListener('click', function(e) {
+                e.preventDefault();
+                document.getElementById('gallery').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

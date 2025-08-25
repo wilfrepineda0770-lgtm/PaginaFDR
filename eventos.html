@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos - Instituto Franklin Delano Roosevelt</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #4A6FA5;
+            --secondary: #7DB9B6;
+            --accent: #5dd1ff;
+            --light: #F5F5F5;
+            --dark: #2A4B6A;
+            --text: #333333;
+            --background: #F0F6FF;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 0;
+            min-height: 100vh;
+        }
+        
+        /* Navegación superior */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            border-bottom: 3px solid var(--accent);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo-nav-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .nav-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+        }
+        
+        .nav-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+        
+        .nav-item {
+            margin: 0;
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: var(--light);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            border: 2px solid transparent;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border-color: var(--accent);
+        }
+        
+        .nav-link i {
+            font-size: 1.1rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.97);
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        header {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--dark) 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1000') no-repeat center center;
+            background-size: cover;
+            opacity: 0.1;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            font-style: italic;
+            color: var(--light);
+        }
+        
+        .content-section {
+            padding: 50px 40px;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary);
+            font-size: 2.2rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .events-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .event-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            border-bottom: 4px solid var(--accent);
+        }
+        
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .event-header {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+            background-color: #e0e0e0; /* Color de fondo mientras carga la imagen */
+        }
+        
+        .event-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .event-card:hover .event-image {
+            transform: scale(1.05);
+        }
+        
+        .event-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 20px;
+            color: white;
+        }
+        
+        .event-title {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: white;
+        }
+        
+        .event-date {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .event-body {
+            padding: 25px;
+        }
+        
+        .event-description {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: var(--text);
+        }
+        
+        .event-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .event-detail {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--dark);
+        }
+        
+        .event-detail i {
+            color: var(--accent);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: var(--dark);
+            color: white;
+            font-size: 1rem;
+        }
+        
+        .quote {
+            font-style: italic;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: var(--accent);
+            max-width: 800px;
+            margin: 20px auto 0;
+        }
+        
+        .no-events {
+            text-align: center;
+            padding: 40px;
+            color: var(--dark);
+            font-size: 1.2rem;
+            grid-column: 1 / -1;
+        }
+        
+        @media (max-width: 992px) {
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .logo-nav-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            /* Navegación responsiva */
+            .top-nav {
+                position: relative;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-link {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+                margin-bottom: 5px;
+            }
+            
+            .events-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .event-header {
+                height: 180px;
+            }
+            
+            .event-info {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Menú de navegación superior actualizado -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div class="logo-nav-container">
+                <div class="nav-logo">
+                    <img src="fdrlogo.jpg" alt="Logo del Instituto Franklin Delano Roosevelt">
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">
+                            <i class="fas fa-home"></i> Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="carreras.html" class="nav-link">
+                            <i class="fas fa-graduation-cap"></i> Carreras
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="eventos.html" class="nav-link active">
+                            <i class="fas fa-calendar-alt"></i> Eventos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="noticias.html" class="nav-link">
+                            <i class="fas fa-newspaper"></i> Noticias
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="alumnos.html" class="nav-link">
+                            <i class="fas fa-user-friends"></i> Alumnos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contacto.html" class="nav-link">
+                            <i class="fas fa-envelope"></i> Contacto
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <div class="header-overlay"></div>
+            <h1>Eventos Institucionales</h1>
+            <p class="subtitle">Participa en nuestras actividades y forma parte de la comunidad FDR</p>
+        </header>
+        
+        <div class="content-section">
+            <h2 class="section-title">Próximos Eventos</h2>
+            
+            <div class="events-container">
+                <!-- Evento 1 -->
+                <div class="event-card">
+                    <div class="event-header">
+                        <img src="evento1.jpg" alt="Feria Vocacional Anual" class="event-image">
+                        <div class="event-overlay">
+                            <h3 class="event-title">Eleccion del Rey Feo</h3>
+                            <div class="event-date">
+                                <i class="far fa-calendar-alt"></i> 22 de Agosto, 2025
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-body">
+                        <p class="event-description">
+                            Se seleccionara al rey feo
+                        </p>
+                        <div class="event-info">
+                            <div class="event-detail">
+                                <i class="fas fa-map-marker-alt"></i> Gimnasio FDR
+                            </div>
+                            <div class="event-detail">
+                                <i class="fas fa-clock"></i> Duración: 5 horas
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Evento 2 -->
+                <div class="event-card">
+                    <div class="event-header">
+                        <img src="evento2.jpg" alt="Feria Vocacional Anual" class="event-image">
+                        <div class="event-overlay">
+                            <h3 class="event-title">Eleccion Reina de la feria</h3>
+                            <div class="event-date">
+                                <i class="far fa-calendar-alt"></i> 2 de Agosto, 2025
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-body">
+                        <p class="event-description">
+                            Se elijira a la reina de la feria.
+                        </p>
+                        <div class="event-info">
+                            <div class="event-detail">
+                                <i class="fas fa-map-marker-alt"></i> Gimnasio FDR
+                            </div>
+                            <div class="event-detail">
+                                <i class="fas fa-clock"></i> Duración: 5 horas
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Evento 3 -->
+                <div class="event-card">
+                    <div class="event-header">
+                        <img src="evento3.jpg" alt="Feria Vocacional Anual" class="event-image">
+                        <div class="event-overlay">
+                            <h3 class="event-title">Dia de identdad nacional del cacique Lempira</h3>
+                            <div class="event-date">
+                                <i class="far fa-calendar-alt"></i> 20 de Julio, 2025
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-body">
+                        <p class="event-description">
+                            Se conmemora la valentía y la resistencia del héroe nacional indígena Lempira contra la conquista española.
+                        </p>
+                        <div class="event-info">
+                            <div class="event-detail">
+                                <i class="fas fa-map-marker-alt"></i> C.E.M.G FDR
+                            </div>
+                            <div class="event-detail">
+                                <i class="fas fa-clock"></i> Duración: 5 horas
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Efecto de aparición para las tarjetas de eventos
+        document.addEventListener('DOMContentLoaded', function() {
+            const eventCards = document.querySelectorAll('.event-card');
+            eventCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 200 + (index * 100));
+            });
+            
+            // Marcar como activo el enlace actual
+            const currentPage = window.location.pathname.split('/').pop();
+            document.querySelectorAll('.nav-link').forEach(link => {
+                const linkPage = link.getAttribute('href');
+                if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
